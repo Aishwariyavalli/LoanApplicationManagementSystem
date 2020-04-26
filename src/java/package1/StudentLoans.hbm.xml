@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24 Mar, 2020 7:43:05 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="package1.StudentLoans" table="student_loans" catalog="test" optimistic-lock="version">
+        <id name="requestId" type="java.lang.Integer">
+            <column name="request_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="customer" class="package1.Customer" fetch="select">
+            <column name="customer_id" not-null="true" />
+        </many-to-one>
+         <property name="amount" type="int">
+            <column name="Amount" not-null="true" />
+        </property>
+        <property name="age" type="int">
+            <column name="age" not-null="true" />
+        </property>
+        <property name="instituteName" type="string">
+            <column name="institute_name" length="20" not-null="true" />
+        </property>
+        <property name="course" type="string">
+            <column name="course" length="20" not-null="true" />
+        </property>
+        <property name="proofOfIdentity" type="binary">
+            <column name="Proof_of_identity" not-null="true" />
+        </property>
+        <property name="incomeProof" type="binary">
+            <column name="Income_proof" not-null="true" />
+        </property>
+        <property name="educationProof" type="binary">
+            <column name="education_proof" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

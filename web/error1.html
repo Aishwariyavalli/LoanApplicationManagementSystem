@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Error Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+    </head>
+    <body>
+         <nav class="navbar navbar-inverse">
+  <div class="container-fluid"> 
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Bank</a>
+    </div>
+    <ul class="nav navbar-nav">
+     <li ><a href="details">Welcome Admin</a></li>
+  <li><a href="LoanApps">Loan Applications</a></li>
+       <li><a href="LoanAppDet">Loan Application Details</a></li>
+    <li><a href="custInfo">Customer Information</a></li>
+      <li><a href="ViewRates.jsp">Rates</a></li>
+       <li class="active"><a href="#">Recieved EMIs</a></li>
+      <li><a href="calcEMI1">Calculate Emi</a></li>
+    </ul>
+  </div>
+</nav>
+    <center>
+        <h1>The customer ID doesn't exist!</h1>
+        <form action="calcEMI1">
+            <input type="submit" value="Go back"/>
+        </form>
+    </center>
+    </body>
+</html>

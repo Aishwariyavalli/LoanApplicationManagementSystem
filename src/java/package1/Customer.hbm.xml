@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24 Mar, 2020 7:43:05 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="package1.Customer" table="customer" catalog="test" optimistic-lock="version">
+        <id name="custId" type="java.lang.Integer">
+            <column name="cust_id" />
+            <generator class="identity" />
+        </id>
+        <property name="firstName" type="string">
+            <column name="first_name" length="20" not-null="true" />
+        </property>
+        <property name="lastName" type="string">
+            <column name="last_name" length="20" not-null="true" />
+        </property>
+        <property name="accountType" type="string">
+            <column name="account_type" length="20" not-null="true" />
+        </property>
+        <property name="balance" type="float">
+            <column name="Balance" precision="12" scale="0" not-null="true" />
+        </property>
+        <set name="studentLoanses" table="student_loans" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="customer_id" not-null="true" />
+            </key>
+            <one-to-many class="package1.StudentLoans" />
+        </set>
+    </class>
+</hibernate-mapping>

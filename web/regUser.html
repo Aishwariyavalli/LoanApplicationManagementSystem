@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Register as customer</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+      #message p {
+  color: red;
+    white-space: pre;
+    font-style: italic;
+}
+  </style>
+  <script>
+      function validate(){
+          var fullName=document.forms["Reg"]["fullName"].value;
+          var userName=document.forms["Reg"]["userName"].value;
+          var password=document.forms["Reg"]["password"].value;
+          var cpass=document.forms["Reg"]["cpass"].value;
+          var mobile=document.forms["Reg"]["mobile"].value;
+          var mail=document.forms["Reg"]["mail"].value;
+          var re = /^[A-Za-z]+$/;
+          var re2 = /^[a-zA-Z]+ [a-zA-Z]+$/
+          var phoneno = /^\d{9}$/;
+          var passw=  /^[A-Za-z]\w{7,14}$/;
+          var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+          var uname=  /^[a-z0-9_-]{3,16}$/;
+          if(fullName==""){
+              alert("Full name is empty! Please enter Full Name!");
+              return false;
+          }
+          else if(!re2.test(fullName)){
+              alert("Please enter proper name!");
+              return false;
+          }
+          else if(userName==""){
+              alert("Username is empty! Please enter username!");
+              return false;
+          }
+         else if(uname.test(userName)){
+              alert("Please enter a proper username!");
+              return false;
+          }
+          else if(password=="" && cpass==""){
+              alert("please enter password and confirm password!");
+              return false;
+          }
+          else if(!passw.test(password)){
+              alert("Please enter proper password format!");
+              return false;
+          }
+          else if(password!=cpass){
+              alert("password and confirm password don't match!");
+              return false;
+          }
+          if(mobile==""){
+              alert("Mobile number is empty!Please fill it!");
+              return false;
+          }
+          else if(!phoneno.test(mobile)){
+              alert("Please enter a proper mobile no!");
+              return false;
+          }
+          else if(mail==""){
+              alert("Email is empty! Pleas enter email!")
+              return false;
+          }
+          else if(!mailformat.test(mail)){
+              alert("Email format is incorrect!");
+              return false;
+          }
+          else{
+              return true;
+          }
+          
+      }
+  </script>
+    </head>
+    <body>
+    <center>
+        <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Bank</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li ><a href="index.html">Home</a></li>
+       <li class="active"><a href="regUser.html">Register user</a></li>
+      <li><a href="custLogin.html">Customer Login</a></li>
+      <li><a href="login.html">Admin Login</a></li>
+    </ul>
+  </div>
+</nav>
+        <form action="RegUser" name="Reg" onsubmit="return validate();" method="POST">
+            <h1> Registration form</h1> </br></br></br>
+            
+            
+            Full Name      :<input type="text" name ="fullName"></br></br>
+            
+            Username       :<input type="text" name ="userName"></br></br>
+                
+            Password            :<input type="password" name ="password"></br></br>
+            Confirm Password       :<input type="password" name ="cpass"></br></br>
+            
+            Mobile Number  :<input type="text" name ="mobile"></br></br>
+            
+           Email ID       :<input type="email" name ="mail"></br></br></br>
+            
+            <input type="submit"  value="REGISTER">
+            <br/><br/>
+            <div id="message">
+              <p>
+              1. Username is 3-16 characters length
+              2. Username can have alphabets and digits and underscore
+              </p><br/>
+            </div>
+            <div id="message">
+              <p>
+                1. Password can have 7-16 characters
+                2. Password can have alphabets, numeric digits and underscore
+                3. Password must start with an alphabet
+              </p><br/>
+            </div>
+        </form>
+    </center>
+    </body>
+</html>
